@@ -20,10 +20,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="font-bold text-xl">
-              <span className="text-primary">IEEE CS</span>{" "}
-              <span className="text-foreground">TEK-UP SBC</span>
-            </div>
+            <img
+              src="/ieee-cs-logo.png"
+              alt="IEEE CS Logo"
+              className="h-12 w-auto"
+            />
             <p className="text-muted-foreground text-sm">
               {settings?.site_name || "IEEE Computer Society TEK-UP Student Branch Chapter"}
             </p>
