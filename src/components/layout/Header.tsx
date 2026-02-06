@@ -24,9 +24,8 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 glass glass-border">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 font-bold text-lg">
-          <span className="text-primary">IEEE CS</span>
-          <span className="text-foreground">TEK-UP</span>
+        <Link to="/" className="flex items-center">
+          <img src="/ieee-cs-logo.png" alt="IEEE CS TEK-UP Logo" className="h-16 w-auto transition-all duration-300 hover:scale-110 hover:drop-shadow-2xl hover:brightness-110" />
         </Link>
 
         {/* Desktop Navigation */}
