@@ -23,7 +23,7 @@ export function Footer() {
             <img
               src="/ieee-cs-logo.png"
               alt="IEEE CS Logo"
-              className="h-12 w-auto"
+              className="h-20 w-auto"
             />
             <p className="text-muted-foreground text-sm">
               {settings?.site_name || "IEEE Computer Society TEK-UP Student Branch Chapter"}
