@@ -26,7 +26,7 @@ export function Footer() {
               className="h-20 w-auto"
             />
             <p className="text-muted-foreground text-sm">
-              {settings?.site_name || "IEEE Computer Society TEK-UP Student Branch Chapter"}
+              IEEE Computer Society Student Branch Chapter
             </p>
             {/* Social Links */}
             <div className="flex gap-3">
@@ -143,7 +143,7 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-border text-center">
           <p className="text-muted-foreground text-sm">
-            {settings?.footer_text || "© 2024 IEEE CS TEK-UP SBC. All rights reserved."}
+            {settings?.footer_text || "© 2024 IEEE Computer Society TEK-UP Student Branch Chapter. All rights reserved."}
           </p>
         </div>
       </div>
