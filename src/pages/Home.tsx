@@ -41,7 +41,7 @@ export default function Home() {
       count: events?.length || 0,
       label: "Events",
       featured: "Join our upcoming Tech Conference featuring industry leaders and networking opportunities",
-      images: [1, 2, 3, 4]
+      images: events?.filter(e => e.cover_image_url).slice(0,4).map(e => e.cover_image_url).concat(Array(4).fill(null)).slice(0,4) || Array(4).fill(null)
     },
     {
       title: "Workshops",
@@ -54,7 +54,7 @@ export default function Home() {
       count: workshops?.length || 0,
       label: "Workshops",
       featured: "Master React Development with our intensive 3-day workshop covering modern web technologies",
-      images: [1, 2, 3, 4]
+      images: workshops?.filter(w => w.cover_image_url).slice(0,4).map(w => w.cover_image_url).concat(Array(4).fill(null)).slice(0,4) || Array(4).fill(null)
     },
     {
       title: "Bootcamps",
@@ -67,7 +67,7 @@ export default function Home() {
       count: bootcamps?.length || 0,
       label: "Bootcamps",
       featured: "Transform your career with our Full-Stack Development Bootcamp - from beginner to job-ready in 12 weeks",
-      images: [1, 2, 3, 4]
+      images: bootcamps?.filter(b => b.cover_image_url).slice(0,4).map(b => b.cover_image_url).concat(Array(4).fill(null)).slice(0,4) || Array(4).fill(null)
     },
     {
       title: "Board Members",
@@ -80,7 +80,7 @@ export default function Home() {
       count: boardMembers?.filter(m => m.is_active).length || 0,
       label: "Members",
       featured: "Our executive board consists of experienced professionals leading various committees and initiatives",
-      images: [1, 2, 3, 4]
+      images: boardMembers?.filter(m => m.photo_url).slice(0,4).map(m => m.photo_url).concat(Array(4).fill(null)).slice(0,4) || Array(4).fill(null)
     },
     {
       title: "Contact Us",
@@ -93,7 +93,7 @@ export default function Home() {
       count: "∞",
       label: "Available",
       featured: "Reach out to us through our contact form, email, or social media channels for any questions or collaborations",
-      images: [1, 2, 3, 4]
+      images: Array(4).fill(null)
     }
   ];
 
@@ -424,9 +424,17 @@ export default function Home() {
                               transition={{ delay: index * 0.2 + 0.4 + imgIndex * 0.1 }}
                               className="aspect-square rounded-xl overflow-hidden bg-muted flex items-center justify-center"
                             >
-                              <div className="w-full h-full bg-gradient-to-br from-muted to-muted-foreground/20 flex items-center justify-center">
-                                <section.icon className={`w-8 h-8 ${section.color} opacity-50`} />
-                              </div>
+                              {image ? (
+                                <img
+                                  src={image}
+                                  alt={`${section.title} ${imgIndex + 1}`}
+                                  className="w-full h-full object-cover"
+                                />
+                              ) : (
+                                <div className="w-full h-full bg-gradient-to-br from-muted to-muted-foreground/20 flex items-center justify-center">
+                                  <section.icon className={`w-8 h-8 ${section.color} opacity-50`} />
+                                </div>
+                              )}
                             </motion.div>
                           ))}
                         </div>
