@@ -1,10 +1,8 @@
 import { useSponsors } from "@/hooks/use-sponsors";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
 export function SponsorsCarousel() {
   const { data: sponsors, isLoading } = useSponsors();
-  const [isHovered, setIsHovered] = useState(false);
 
   // Placeholder sponsors for demonstration
   const placeholderSponsors = [
@@ -56,11 +54,7 @@ export function SponsorsCarousel() {
         </motion.div>
 
         {/* Infinite carousel container */}
-        <div
-          className="relative overflow-hidden"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+        <div className="relative overflow-hidden">
           <motion.div
             className="flex gap-8"
             animate={{
@@ -76,7 +70,6 @@ export function SponsorsCarousel() {
             }}
             style={{
               width: "200%",
-              animationPlayState: isHovered ? "paused" : "running",
             }}
           >
             {duplicatedSponsors.map((sponsor, index) => (
@@ -94,7 +87,7 @@ export function SponsorsCarousel() {
                     <img
                       src={sponsor.logo_url}
                       alt={sponsor.name}
-                      className="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                      className="max-h-full max-w-full object-contain transition-all duration-500"
                     />
                   ) : (
                     <div className="text-muted-foreground font-medium text-center text-sm group-hover:text-primary transition-colors duration-300">

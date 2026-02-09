@@ -34,6 +34,7 @@ import AdminSponsorForm from "./pages/admin/AdminSponsorForm";
 import AdminMessages from "./pages/admin/AdminMessages";
 import AdminNewsletter from "./pages/admin/AdminNewsletter";
 import AdminSettings from "./pages/admin/AdminSettings";
+import { ProtectedAdminRoute } from "./components/admin/ProtectedAdminRoute";
 
 const queryClient = new QueryClient();
 
@@ -59,20 +60,20 @@ const App = () => (
 
             {/* Admin Routes */}
             <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/admin/events" element={<AdminEvents />} />
-            <Route path="/admin/events/:id" element={<AdminEventForm />} />
-            <Route path="/admin/workshops" element={<AdminWorkshops />} />
-            <Route path="/admin/workshops/:id" element={<AdminWorkshopForm />} />
-            <Route path="/admin/bootcamps" element={<AdminBootcamps />} />
-            <Route path="/admin/bootcamps/:id" element={<AdminBootcampForm />} />
-            <Route path="/admin/board" element={<AdminBoard />} />
-            <Route path="/admin/board/:id" element={<AdminBoardForm />} />
-            <Route path="/admin/sponsors" element={<AdminSponsors />} />
-            <Route path="/admin/sponsors/:id" element={<AdminSponsorForm />} />
-            <Route path="/admin/messages" element={<AdminMessages />} />
-            <Route path="/admin/newsletter" element={<AdminNewsletter />} />
-            <Route path="/admin/settings" element={<AdminSettings />} />
+            <Route path="/admin" element={<ProtectedAdminRoute><AdminDashboard /></ProtectedAdminRoute>} />
+            <Route path="/admin/events" element={<ProtectedAdminRoute><AdminEvents /></ProtectedAdminRoute>} />
+            <Route path="/admin/events/:id" element={<ProtectedAdminRoute><AdminEventForm /></ProtectedAdminRoute>} />
+            <Route path="/admin/workshops" element={<ProtectedAdminRoute><AdminWorkshops /></ProtectedAdminRoute>} />
+            <Route path="/admin/workshops/:id" element={<ProtectedAdminRoute><AdminWorkshopForm /></ProtectedAdminRoute>} />
+            <Route path="/admin/bootcamps" element={<ProtectedAdminRoute><AdminBootcamps /></ProtectedAdminRoute>} />
+            <Route path="/admin/bootcamps/:id" element={<ProtectedAdminRoute><AdminBootcampForm /></ProtectedAdminRoute>} />
+            <Route path="/admin/board" element={<ProtectedAdminRoute><AdminBoard /></ProtectedAdminRoute>} />
+            <Route path="/admin/board/:id" element={<ProtectedAdminRoute><AdminBoardForm /></ProtectedAdminRoute>} />
+            <Route path="/admin/sponsors" element={<ProtectedAdminRoute><AdminSponsors /></ProtectedAdminRoute>} />
+            <Route path="/admin/sponsors/:id" element={<ProtectedAdminRoute><AdminSponsorForm /></ProtectedAdminRoute>} />
+            <Route path="/admin/messages" element={<ProtectedAdminRoute><AdminMessages /></ProtectedAdminRoute>} />
+            <Route path="/admin/newsletter" element={<ProtectedAdminRoute><AdminNewsletter /></ProtectedAdminRoute>} />
+            <Route path="/admin/settings" element={<ProtectedAdminRoute><AdminSettings /></ProtectedAdminRoute>} />
 
             {/* 404 */}
             <Route path="*" element={<NotFound />} />
